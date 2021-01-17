@@ -1,0 +1,29 @@
+{% extends 'base/base_sistema.html' %}
+
+{% block title %}Alimentos - {{object.nome}} {% endblock title %}
+
+{% block conteudo__header_text %}
+    {{object.nome}}
+{% endblock conteudo__header_text %}
+
+{% block conteudo__header_actions %}
+<a href="{{ object.get_update_url}}" class="btn btn-primary">Atualizar</a>
+<a href="{{ object.get_delete_url}}" class="btn btn-danger">Excluir</a>
+{% endblock conteudo__header_actions %}
+
+{% block conteudo %}
+
+        <p><b>Nome:</b>{{object.nome}}</p>
+        <p><b>Proteina g:</b>{{object.proteina}}</p>
+        <p><b>Carbo g:</b>{{object.carbo}}</p>
+        <p><b>Gordura g:</b>{{object.gordura}}</p>
+        <p><b>Sodio g:</b>{{object.sodio}}</p>
+        <p><b>Fibra g:</b>{{object.fibra}}</p>
+        <p><b>Polisaturado g:</b>{{object.polisaturado}}</p>
+        <p><b>PoliInsaturado g:</b>{{object.poliInsaturado}}</p>
+        <p><b>Monosaturado g:</b>{{object.monosaturado}}</p>
+        <p><b>Monoinsaturado g:</b>{{object.monoinsaturado}}</p>
+        
+
+{% endblock conteudo %}
+
