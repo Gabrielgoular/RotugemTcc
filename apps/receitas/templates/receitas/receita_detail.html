@@ -2,30 +2,78 @@
 
 {% block title %}Receitas - {{object.nome}} {% endblock title %}
 
+{% block tabela__url %}{% url 'receita__detail' %}{% endblock tabela__url %}
+
+
 
 {% block conteudo %}
     <h1> {{object.nome}} </h1>
     
     
     <br>
-        <a href="{{ object.get_add_ingrediente_url}}">Adicionar Ingrediente</a>
-        <a href="{{ object.get_update_url}}">Atualizar</a>
-        <a href="{{ object.get_delete_url}}">Excluir</a>
-                
+        <a class="btn btn-success" href="{{ object.get_add_ingrediente_url}}">Adicionar Ingrediente</a>
+        <a class="btn btn-primary" href="{{ object.get_update_url}}">Atualizar</a>
+        <a class="btn btn-danger" href="{{ object.get_delete_url}}">Excluir</a>
+    
 
     <br>
 
         <p><b>Nome:</b>{{object.nome}}</p>
         <p><b>Quantidade por porção:</b>{{object.quantidade}}</p>
         <p><b>Descrição da Receita:</b>{{object.descricao}}</p>
-
-        {% for ingrediente in object.get_ingredientes  %} 
-            {{ingrediente.alimento.nome}}-{{ingrediente.quantidade}}
-        <a href="{{ ingrediente.get_u_url}}">Atualizar</a>
-        <a href="{{ ingrediente.get_d_url}}">Excluir</a>
-        {% endfor %}
-
         
+         <table class="table table-hover">
+          <thead>
+            <tr>
+                <th>Alimento</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            
+            </tr> 
+          </thead>
+          <tbody>
+       
+            {% for ingrediente in object.get_ingredientes  %} 
+            <tr>
+                <td>{{ingrediente.alimento.nome}}</td>
+                <td>{{ingrediente.quantidade}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ ingrediente.get_u_url}}">Atualizar</a>
+                    <a class="btn btn-danger" href="{{ ingrediente.get_d_url}}">Excluir</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
 
+<table class="table" style="width: 30%;">
+  <tbody>
+    <tr>
+      <td>Receita: </td>
+      <td>{{ object.nome }}</td>
+    </tr>
+    <tr>
+      <td>Calorias: </td>
+      <td>{{ object.total_caloria }}</td>
+    </tr>
+    <tr>
+      <td>Carboidratos: </td>
+      <td>{{ object.total_carbo }}</td>
+    </tr>
+    <tr>
+      <td>Proteínas: </td>
+      <td>{{ object.total_proteina }}</td>
+    </tr>
+    <tr>
+      <td>Gorduras: </td>
+      <td>{{ object.total_gordura }}</td>
+    </tr>
+  </tbody>
+</table>
+       
 {% endblock conteudo %}
+
+
+
 

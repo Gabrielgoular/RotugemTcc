@@ -8,8 +8,8 @@ from django.db import models
 class Alimento(models.Model):
     nome = models.CharField(max_length=254, verbose_name="Nome")
     proteina = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Proteinas G:")
-    carbo = models.DecimalField(max_digits=10, decimal_places=2,verbose_name="Carboidratos  G:")
-    gordura = models.DecimalField(max_digits=10, decimal_places=2,verbose_name= "Gordura  G:")   
+    carbo = models.DecimalField(max_digits=10, decimal_places=2,verbose_name="Carboidratos G:")
+    gordura = models.DecimalField(max_digits=10, decimal_places=2,verbose_name= "Gordura G:")   
     sodio = models.DecimalField( max_digits=10, decimal_places=2, verbose_name="Sódio G:")    
     fibra = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Fibras G:")    
     polisaturado = models.DecimalField(max_digits=10, decimal_places=2,verbose_name="Polisaturado G:", blank=True, null= True, default=None )       
