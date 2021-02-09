@@ -1,0 +1,23 @@
+{% extends 'base/base_sistema.html' %}
+
+{% block title %}Excluir
+    {% block model_name %}
+    {% endblock model_name %}
+{% endblock title %}
+
+{% block conteudo__header_text %}Excluir{% endblock conteudo__header_text %}
+
+{% block conteudo %}
+    <form action="" method="POST"> 
+        {% csrf_token %}
+        <p>
+        Tem certeza que você quer excluir o {% block model_name__text %}{% endblock model_name__text %} "{% block model %}{{ object.nome }}{% endblock model %}"
+        </p>
+        <div class="btn-group btn-block" role="group">
+         <a href="{{ object.get_absolute_url }}" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+        </div>
+       
+    </form>
+
+{% endblock conteudo %}

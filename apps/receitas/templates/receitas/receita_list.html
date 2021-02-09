@@ -1,0 +1,27 @@
+{% extends 'base/base_list.html' %}
+
+
+{% block list_title__model_name %}Receitas{% endblock list_title__model_name %}
+{% block conteudo__header_text %}Receitas{% endblock conteudo__header_text %}
+
+
+{% block botao_add__url %}{% url 'receita__cria' %}{% endblock botao_add__url %}
+
+{% block lista__header %}
+   <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Descrição da receita</th>
+  
+   </tr>
+{% endblock lista__header %}
+
+{% block lista %}
+     {% for receita in object_list  %}
+        <tr onclick="to('{{ receita.get_absolute_url }}')">
+          <td>{{receita.nome}}</td>
+          <td>{{receita.quantidade}}</td>
+          <td>{{receita.descricao}}</td>
+        </tr>
+    {% endfor %}
+{% endblock lista %}

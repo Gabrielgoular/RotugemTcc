@@ -1,0 +1,40 @@
+{% extends 'base/base_list.html' %}
+
+
+{% block list_title__model_name %}Alimentos{% endblock list_title__model_name %}
+{% block conteudo__header_text %}Alimentos{% endblock conteudo__header_text %}
+{% block botao_add__url %}{% url 'alimento__cria' %}{% endblock botao_add__url %}
+
+{% block lista__header %}
+
+   <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Proteinas G:</th>
+      <th scope="col">Carboidratos G:</th>
+      <th scope="col">Gordura  G:</th>
+      <th scope="col">Sódio G:</th>
+      <th scope="col">Fibras G:</th>
+      <th scope="col">Polisaturado G:</th>
+      <th scope="col">Poli-Insaturado G:</th>
+      <th scope="col">Monosaturado G:</th>
+      <th scope="col">Mono-Insaturado G:</th>
+   </tr>
+{% endblock lista__header %}
+
+{% block lista %}
+     {% for alimento in object_list  %}
+        <tr onclick="to('{{ alimento.get_absolute_url }}')">
+          <td>{{alimento.nome}}</td>
+          <td>{{alimento.proteina}}</td>
+          <td>{{alimento.carbo}}</td>
+          <td>{{alimento.gordura}}</td>
+          <td>{{alimento.sodio}}</td>
+          <td>{{alimento.fibra}}</td>
+          <td>{{alimento.polisaturado}}</td>
+          <td>{{alimento.poliInsaturado}}</td>
+          <td>{{alimento.monosaturado}}</td>
+          <td>{{alimento.monoInsaturado}}</td>
+        </tr>
+    {% endfor %}
+
+{% endblock lista %}
